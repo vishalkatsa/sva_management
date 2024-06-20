@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust as needed for your layout */
+    /* height: 100vh; Adjust as needed for your layout */
 }
 
 .form-container {
@@ -38,8 +38,8 @@
 
 .btn-primary {
     color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
+    background-color: #a0a0a0;
+    border-color: #a0a0a0;
     display: inline-block;
     font-weight: 400;
     text-align: center;
@@ -55,6 +55,113 @@
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #0069d9;
-    border-color: #0062cc;
+    background-color: #a0a0a0;
+    border-color: #a0a0a0;
+}
+
+
+
+
+
+
+.main{
+    overflow: auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 20mm;
+}
+
+.certificate-section-con{
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgp{
+    width: 200px;
+    height: 50px;
+}
+
+
+
+/* Set up A4 page size */
+@page {
+    size: A4;
+    margin: 20mm;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    overflow: auto;
+    /* padding: 20px; */
+}
+
+.certificate-container {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 10mm 20mm;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+    /* overflow: auto; */
+}
+
+.certificate-header {
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.certificate-header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.certificate-no {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.certificate-section {
+    margin-bottom: 20px;
+}
+
+.certificate-section h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    color: #333;
+}
+
+.certificate-section p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.certificate-section img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+/* Print-specific styles */
+@media print {
+    body {
+        background-color: #fff;
+    }
+
+    .certificate-container {
+        box-shadow: none;
+    }
 }

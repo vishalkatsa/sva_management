@@ -1,37 +1,150 @@
 {% extends "templates/web.html" %}
 {% block content %}
-
-<div class="page-content">
-    <div class="form-container">
-        <div class="form-group">
-            <label for="certificate_number">Certificate Ref No:</label>
-            <input type="text" id="certificate_number" class="form-control">
+<div class="main">
+    <div class="page-content">
+        <div class="form-container">
+            <div class="form-group">
+                <label for="certificate_number">Certificate Ref No:</label>
+                <input type="text" id="certificate_number" class="form-control" value="jitendra -B-10-19-06-24-00003">
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" onclick="downloadCertificate()">Download
+                    Certificate</button>
+                <button type="button" class="btn btn-secondary" onclick="downloadPDF()" style="display: none;">Download
+                    as PDF</button>
+            </div>
         </div>
-        <div class="form-group">
-            <button type="button" class="btn btn-primary" onclick="downloadCertificate()">Download Certificate</button>
+    </div>
+
+    <div class="certificate-container CTF" id="certificate-container" style="display: none;">
+        <div class="certificate-header">
+            <h1>Birth Certificate</h1>
+            <p class="certificate-no" id="certificate-no">Certificate No: </p>
+        </div>
+        <div class="certificate-section certificate-section-con">
+            <div>
+                <h4>Personal Information</h4>
+                <p><strong>Name:</strong> <span id="name">Jitendra Kumar</span></p>
+                <p><strong>Date of Birth:</strong> <span id="dob">June 19, 2024</span></p>
+                <p><strong>Time of Birth:</strong> <span id="tob">12:26:55 PM</span></p>
+                <p><strong>Gender:</strong> <span id="gender">(Not specified)</span></p>
+                <p><strong>Birth Type:</strong> <span id="birth-type">Hospital</span></p>
+            </div>
+            <img src="/private/files/VKp.png" alt="Children's Image" class="imgp" id="child-image">
+        </div>
+
+        <div class="certificate-section">
+            <h2>Parent Information</h2>
+            <p><strong>Father's Name:</strong> <span id="father-name">Papa</span></p>
+            <p><strong>Mother's Name:</strong> <span id="mother-name">Mam</span></p>
+            <p><strong>Father's Aadhaar No:</strong> <span id="father-aadhaar">97856342</span></p>
+        </div>
+        <div class="certificate-section">
+            <h2>Contact Information</h2>
+            <p><strong>Email ID:</strong> <span id="email-id">jit@gmail.com</span></p>
+            <p><strong>Mobile No:</strong> <span id="mobile-no">+91-9785634231</span></p>
+        </div>
+        <div class="certificate-section-con">
+            <div class="certificate-section">
+                <h2>Location Details</h2>
+                <p><strong>Hospital/Home Name:</strong> <span id="hospital-name">Katsa</span></p>
+                <p><strong>Village:</strong> <span id="village">Katsa-Katsa-Amnour-Saran-B-10</span></p>
+                <p><strong>Panchayat:</strong> <span id="panchayat">Katsa-Amnour-Saran-B-10</span></p>
+                <p><strong>Ward:</strong> <span id="ward">1-Katsa-Amnour-Saran-B-10</span></p>
+                <p><strong>Block:</strong> <span id="block">Amnour-Saran-B-10</span></p>
+                <p><strong>District:</strong> <span id="district">Saran-B-10</span></p>
+                <p><strong>State:</strong> <span id="state">B-10</span></p>
+            </div>
+            <div class="certificate-section">
+                <h2>Administrative Details</h2>
+                <p><strong>Certificate No:</strong> <span id="admin-certificate-no">B-10TDqlGTGKGt</span></p>
+                <p><strong>Creation Date:</strong> <span id="creation-date">June 19, 2024</span></p>
+                <p><strong>Modification Date:</strong> <span id="modification-date">June 20, 2024</span></p>
+                <p><strong>Modified By:</strong> <span id="modified-by">Administrator</span></p>
+                <p><strong>Status:</strong> <span id="status">Approve</span></p>
+                <p><strong>Document Type:</strong> <span id="doc-type">Beneficiary</span></p>
+                <p><strong>Owner:</strong> <span id="owner">Administrator</span></p>
+            </div>
         </div>
     </div>
 </div>
-
 <script>
     function downloadCertificate() {
-        // Handle download logic here
         var certificateNumber = document.getElementById('certificate_number').value;
-        // Example AJAX request (using Frappe's API endpoint)
         frappe.call({
-            method: 'custom_app.custom_module.download_certificate',
+            method: 'sva_management.sva.doctype.beneficiary.beneficiary.get_beneficiary_by_id',
             args: {
-                certificate_number: certificateNumber
+                name: certificateNumber
             },
-            callback: function(r) {
-                // Handle response if needed
+            callback: function (r) {
                 if (r.message) {
-                    window.open(r.message.url); // Open download link
+                    var data = r.message;
+                    if (r.message) {
+                        var CTF = document.querySelector('.CTF');
+                        CTF.style.display = 'block';
+                    }
+                    if (data.status === "Approve") {
+
+                        document.getElementById('certificate-no').innerText = 'Certificate No: ' + data.certificate_no;
+                        document.getElementById('name').innerText = data.first_name + ' ' + data.last_name;
+                        document.getElementById('dob').innerText = data.birth_date;
+                        document.getElementById('tob').innerText = data.birth_time;
+                        document.getElementById('gender').innerText = data.gender || '(Not specified)';
+                        document.getElementById('birth-type').innerText = data.type_of_birth;
+                        document.getElementById('father-name').innerText = data.father_name;
+                        document.getElementById('mother-name').innerText = data.mother_name;
+                        document.getElementById('father-aadhaar').innerText = data.father_or_mother_aadhar_no;
+                        document.getElementById('email-id').innerText = data.email_id;
+                        document.getElementById('mobile-no').innerText = data.mobile_no;
+                        document.getElementById('hospital-name').innerText = data.hospital_or_home_name;
+                        document.getElementById('village').innerText = data.village;
+                        document.getElementById('panchayat').innerText = data.panchayat;
+                        document.getElementById('ward').innerText = data.ward;
+                        document.getElementById('block').innerText = data.block;
+                        document.getElementById('district').innerText = data.district;
+                        document.getElementById('state').innerText = data.state;
+                        document.getElementById('admin-certificate-no').innerText = data.certificate_no;
+                        document.getElementById('creation-date').innerText = data.creation;
+                        document.getElementById('modification-date').innerText = data.modified;
+                        document.getElementById('modified-by').innerText = data.modified_by;
+                        document.getElementById('status').innerText = data.status;
+                        document.getElementById('doc-type').innerText = data.doctype;
+                        document.getElementById('owner').innerText = data.owner;
+                        document.getElementById('child-image').src = data.upload_children_image;
+                    } else {
+                        frappe.msgprint(data.status);
+                    }
                 } else {
                     frappe.msgprint('Error downloading certificate');
                 }
             }
         });
+    }
+
+
+    function downloadPDF() {
+        // Hide unnecessary elements for PDF print navbar navbar-light navbar-expand-lg
+        var pagec = document.querySelector('.page-content');
+        var navbar = document.querySelector('.navbar');
+        var footer = document.querySelector('.web-footer');
+        var certificate = document.querySelector('.certificate-container');
+        var secondary = document.querySelector('.btn-secondary');
+
+        certificate.style.padding = "0px";
+        pagec.style.display = 'none';
+        navbar.style.display = 'none';
+        footer.style.display = 'none';
+        secondary.style.display = 'none';
+
+        // Print the certificate containers
+        window.print();
+
+        // Show the button again after printing
+        certificate.style.padding = "30px 60px";
+        pagec.style.display = 'block';
+        navbar.style.display = 'block';
+        footer.style.display = 'block';
+        secondary.style.display = 'block';
     }
 </script>
 {% endblock %}
