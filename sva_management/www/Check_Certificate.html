@@ -1,0 +1,37 @@
+{% extends "templates/web.html" %}
+{% block content %}
+
+<div class="page-content">
+    <div class="form-container">
+        <div class="form-group">
+            <label for="certificate_number">Certificate Ref No:</label>
+            <input type="text" id="certificate_number" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary" onclick="downloadCertificate()">Download Certificate</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function downloadCertificate() {
+        // Handle download logic here
+        var certificateNumber = document.getElementById('certificate_number').value;
+        // Example AJAX request (using Frappe's API endpoint)
+        frappe.call({
+            method: 'custom_app.custom_module.download_certificate',
+            args: {
+                certificate_number: certificateNumber
+            },
+            callback: function(r) {
+                // Handle response if needed
+                if (r.message) {
+                    window.open(r.message.url); // Open download link
+                } else {
+                    frappe.msgprint('Error downloading certificate');
+                }
+            }
+        });
+    }
+</script>
+{% endblock %}

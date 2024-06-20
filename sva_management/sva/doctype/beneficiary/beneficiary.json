@@ -1,0 +1,266 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{first_name}-{state}-{DD}-{MM}-{YY}-{#####}",
+ "creation": "2024-06-18 09:50:24.865728",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "birth_certificate",
+  "section_break_tjjc",
+  "status",
+  "column_break_hurt",
+  "certificate_no",
+  "section_break_ltkd",
+  "upload_children_image",
+  "column_break_cqhx",
+  "preview",
+  "birth_certificate_section",
+  "first_name",
+  "father_name",
+  "mobile_no",
+  "father_or_mother_aadhar_no",
+  "column_break_pfcj",
+  "last_name",
+  "mother_name",
+  "email_id",
+  "type_of_aadhaar_no",
+  "section_break_jngi",
+  "birth_date",
+  "type_of_birth",
+  "column_break_iuqo",
+  "birth_time",
+  "hospital_or_home_name",
+  "section_break_qtwx",
+  "state",
+  "block",
+  "village",
+  "column_break_wwns",
+  "district",
+  "panchayat",
+  "ward"
+ ],
+ "fields": [
+  {
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "First Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Father Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Phone",
+   "in_list_view": 1,
+   "label": "Mobile No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_pfcj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Last Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mother_name",
+   "fieldtype": "Data",
+   "label": "Mother Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email_id",
+   "fieldtype": "Data",
+   "label": "Email Id"
+  },
+  {
+   "fieldname": "section_break_jngi",
+   "fieldtype": "Section Break",
+   "label": "Birth Flow"
+  },
+  {
+   "fieldname": "birth_date",
+   "fieldtype": "Date",
+   "label": "Birth Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "birth_time",
+   "fieldtype": "Time",
+   "label": "Birth Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_iuqo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type_of_birth",
+   "fieldtype": "Select",
+   "label": "Type of Birth",
+   "options": "Hospital\nHome",
+   "reqd": 1
+  },
+  {
+   "fieldname": "hospital_or_home_name",
+   "fieldtype": "Small Text",
+   "label": "Hospital or Home Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_qtwx",
+   "fieldtype": "Section Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Link",
+   "label": "State",
+   "options": "State",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wwns",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "district",
+   "fieldtype": "Link",
+   "label": "District",
+   "options": "District",
+   "reqd": 1
+  },
+  {
+   "fieldname": "block",
+   "fieldtype": "Link",
+   "label": "Block",
+   "options": "Block",
+   "reqd": 1
+  },
+  {
+   "fieldname": "panchayat",
+   "fieldtype": "Link",
+   "label": "Panchayat",
+   "options": "Panchayat",
+   "reqd": 1
+  },
+  {
+   "fieldname": "village",
+   "fieldtype": "Link",
+   "label": "Village",
+   "options": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ward",
+   "fieldtype": "Link",
+   "label": "Ward",
+   "options": "Ward",
+   "reqd": 1
+  },
+  {
+   "fieldname": "birth_certificate_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Details"
+  },
+  {
+   "fieldname": "father_or_mother_aadhar_no",
+   "fieldtype": "Data",
+   "label": "Parents Aadhaar No",
+   "reqd": 1
+  },
+  {
+   "fieldname": "type_of_aadhaar_no",
+   "fieldtype": "Select",
+   "label": "Type of Aadhaar No",
+   "options": "Select Parent Name\nFather\nMother",
+   "reqd": 1
+  },
+  {
+   "fieldname": "upload_children_image",
+   "fieldtype": "Attach Image",
+   "label": "Upload Children Image",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_cqhx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "preview",
+   "fieldtype": "Image",
+   "label": "Preview",
+   "options": "upload_children_image"
+  },
+  {
+   "fieldname": "birth_certificate",
+   "fieldtype": "Heading",
+   "label": "Birth Certificate"
+  },
+  {
+   "fieldname": "section_break_ltkd",
+   "fieldtype": "Section Break",
+   "label": "Upload image"
+  },
+  {
+   "fieldname": "section_break_tjjc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Darf\nApprove\nDisapprove",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hurt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "certificate_no",
+   "fieldtype": "Data",
+   "label": "Certificate No",
+   "read_only": 1,
+   "unique": 1
+  }
+ ],
+ "image_field": "upload_children_image",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-20 12:57:55.675540",
+ "modified_by": "Administrator",
+ "module": "sva",
+ "name": "Beneficiary",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

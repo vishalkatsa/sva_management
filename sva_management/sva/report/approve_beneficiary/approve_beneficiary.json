@@ -1,0 +1,28 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-06-19 12:36:45.743348",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 2,
+ "is_standard": "Yes",
+ "json": "{}",
+ "letterhead": null,
+ "modified": "2024-06-19 14:32:03.965777",
+ "modified_by": "Administrator",
+ "module": "sva",
+ "name": "Approve Beneficiary",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n  name AS `Id`,\n  certificate_no AS `Certificate No`,\n  birth_date AS `Birth Date`,\n  status AS `Status`,\n  first_name AS `First Name`,\n  last_name AS `Last Name`,\n  mobile_no AS `Mobile No`,\n  email_id AS `Email Id`,\n  1 AS `Count`\nFROM\n  `tabBeneficiary`\nWHERE\n  status = 'Approve'\nORDER BY\n  creation DESC;\n",
+ "ref_doctype": "Beneficiary",
+ "report_name": "Approve Beneficiary",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}

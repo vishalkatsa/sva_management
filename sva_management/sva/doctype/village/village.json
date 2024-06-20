@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{village}-{panchayat}",
+ "creation": "2024-06-18 11:19:40.214650",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "village",
+  "column_break_bbkj",
+  "panchayat"
+ ],
+ "fields": [
+  {
+   "fieldname": "village",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Village",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_bbkj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "panchayat",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Panchayat",
+   "options": "Panchayat",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-06-18 13:05:05.135237",
+ "modified_by": "Administrator",
+ "module": "sva",
+ "name": "Village",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "village"
+}
